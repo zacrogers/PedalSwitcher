@@ -1,10 +1,10 @@
 #include <SPI.h>
 #include <SD.h>
 
-#define BAUD_RATE 9600
-
-#define NUM_LEDS  8
-#deifne NUM_BTNS  8
+#define BAUD_RATE    9600
+#define NUM_LEDS     8
+#define NUM_BTNS     8
+#define NUM_PROFILES 8
 
 
 /* Led indexes */
@@ -37,13 +37,17 @@ enum class States
     /* This is for patch selection mode */
     PATCH,         
     
-    /* This mode for enabling/disabling the channels  manually */
+    /* This mode for enabling/disabling the channels manually */
     MANUAL
 };
 
-typedef enum
+typedef struct
 {
-    uint8_t channels[5];
+    uint8_t input;
+    uint8_t ret_1;
+    uint8_t ret_2;
+    uint8_t ret_3;
+    uint8_t ret_4;
 }Patch;
 
 
@@ -55,6 +59,8 @@ const Mux btn_mux = {.sel = {s0, s1, s2}, .out = out};
 File   my_file;
 
 States current_state      = States::PROGRAMMING;
+
+Patch  patches[8]         = {};
 Patch  current_patch      = {0};
 
 uint8_t led_state         = 0x00;
@@ -63,6 +69,7 @@ uint8_t btn_state         = 0x00;
 
 bool    serial_connected  = false;
 uint8_t serial_data       = 0;
+
 
 void setup(void)
 {
@@ -96,6 +103,7 @@ void change_state(States state)
     current_state = state;
 }
 
+
 void poll_buttons(void)
 {
     uint8_t mux_state = digitalRead(btn_mux.out);
@@ -106,6 +114,7 @@ void poll_buttons(void)
     }
 }
 
+
 void set_shift_register(uint16_t val)
 {
     uint16_t state = (led_state << 8) | channel_state;
@@ -114,12 +123,13 @@ void set_shift_register(uint16_t val)
     *****************************************/
 }
 
+
 void set_led(LedInd led)
 {
     led_state |= (0x01 << (uint8_t)led);
     set_shift_register();
-    
 }
+
 
 void clear_led(LedInd led)
 {
@@ -127,15 +137,22 @@ void clear_led(LedInd led)
     set_shift_register();
 }
 
+
 void set_leds(uint8_t leds)
 {
 
 }
 
+
 void set_channels(uint8_t channels)
 {
-
+    channel_state =| current_patch.input;
+    channel_state =| (current_patch.ret_1 << 2);
+    channel_state =| (current_patch.ret_2 << 4);
+    channel_state =| (current_patch.ret_3 << 6);
+    channel_state =| (current_patch.ret_4 << 8);
 }
+
 
 void midi_recieve()
 {
@@ -209,7 +226,7 @@ void load_patches(void)
 
 void set_patch(uint8_t patch)
 {
-
+    current_patch = patches[patch];
 }
 
 
