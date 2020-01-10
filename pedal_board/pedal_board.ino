@@ -54,14 +54,15 @@ const Mux btn_mux = {.sel = {s0, s1, s2}, .out = out};
 
 File   my_file;
 
-States current_state  = States::Manual;
-Patch  current_patch  = {0};
+States current_state      = States::PROGRAMMING;
+Patch  current_patch      = {0};
 
-uint8_t led_state     = 0x00;
-uint8_t channel_state = 0x00;
-uint8_t btn_state     = 0x00;
+uint8_t led_state         = 0x00;
+uint8_t channel_state     = 0x00;
+uint8_t btn_state         = 0x00;
 
-uint8_t serial_data   = 0;
+bool    serial_connected  = false;
+uint8_t serial_data       = 0;
 
 void setup(void)
 {
@@ -145,30 +146,48 @@ void midi_recieve()
 /* Programming mode functions */
 void state_programming(void)
 {    
-    serial_connect();
+    if(!serial_connected)
+    {
+        serial_connect();
+    }
+    
     if(Serial.available())
     {           
+        serial_connected = true;
         serial_data = Serial.read();
 
-        if(serial_data == "CONFIG")
+        if(serial_data == "SYNC TO")
         {
-            my_file = SD.open("config.txt", FILE_WRITE);
-
-            if(my_file)
-            {
-                my_file.println(serial_data);     
-                my_file.close();
-            }
-        }           
+            sync_from_configurator();
+        }     
     }        
 }
 
-void serial_connect()
+
+void sync_from_configurator(void)
+{
+    Serial.print("CONNECTED");   
+    my_file = SD.open("config.txt", FILE_WRITE);
+
+    if(my_file)
+    {
+        my_file.println(serial_data);     
+        my_file.close();
+    }
+}
+
+
+void sync_to_configurator(void)
+{
+    Serial.print("CONNECTED");
+}
+
+void serial_connect(void)
 {
     Serial.begin(BAUD_RATE);
 }
 
-void serial_disconnect()
+void serial_disconnect(void)
 {
     Serial.end();
 }
@@ -181,7 +200,7 @@ void state_patch(void)
 }
 
 
-void load_patches()
+void load_patches(void)
 {
     // open sd card
     // 
