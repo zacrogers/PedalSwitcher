@@ -9,18 +9,18 @@ class IOChannelSelect(tk.Frame):
         self.title.pack(side = tk.TOP)
 
         self.labels = [
-            ("Loop 1", "1"), 
-            ("Loop 2", "2"), 
-            ("Loop 3", "3"), 
-            ("Loop 4", "4"),
-            ("Main Out", "4")
+            ("Send 1", 0), 
+            ("Send 2", 1), 
+            ("Send 3", 2), 
+            ("Send 4", 3),
+            ("Output", 4)
         ]
+
         self.radio_btns = []
         v = tk.StringVar()
-        v.set("INIT")
+        v.set(0)
 
         for text, mode in self.labels:
-            b = tk.Radiobutton(self, text = text, 
-                                variable = v, value = mode)
-            b.pack(side = tk.TOP)
+            b = tk.Radiobutton(self, text = text, variable = v, value = mode)
+            b.pack(side = tk.TOP, pady = 5)
             self.radio_btns.append(b)
