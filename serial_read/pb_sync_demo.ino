@@ -6,8 +6,10 @@ bool serial_connected = false;
 uint8_t ser_start_btn = 2;
 uint8_t ser_stop_btn  = 3;
 
-Gpio start_btn = Gpio(Port::D, 2, Mode::Input);
-Gpio stop_btn  = Gpio(Port::D, 3, Mode::Input);
+Gpio start_btn  = Gpio(Port::D, 2, Mode::Input);
+Gpio stop_btn   = Gpio(Port::D, 3, Mode::Input);
+
+Gpio status_led = Gpio(Port::D, 4, Mode::Output);
 
 void setup(void)
 {   
@@ -29,16 +31,19 @@ void loop(void)
         serial_connected = false; 
         Serial.end();
     }
+    
     /*
     if(start_btn.read())
     {
-        serial_connected = true;   
+        serial_connected = true; 
+        status_led.set();
         Serial.begin(BAUD_RATE);
     }
     
     if(stop_btn.read())
     {
-        serial_connected = false;   
+        serial_connected = false;  
+        status_led.clear();
         Serial.end();
     }    
     */
