@@ -1,3 +1,4 @@
+#include "atm_gpio.h"
 
 #define BAUD_RATE 9600
 bool serial_connected = false;
@@ -12,7 +13,6 @@ void setup(void)
 {   
     pinMode(ser_start_btn, INPUT);
     pinMode(ser_stop_btn, INPUT);
-    Serial.begin(BAUD_RATE);
 }
 
 
