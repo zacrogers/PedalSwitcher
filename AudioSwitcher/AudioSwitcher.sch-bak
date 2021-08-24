@@ -1,0 +1,532 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L 4xxx:4051 U?
+U 1 1 612444B4
+P 9800 1750
+F 0 "U?" H 10344 1796 50  0000 L CNN
+F 1 "4051" H 10344 1705 50  0000 L CNN
+F 2 "" H 9800 1750 50  0001 C CNN
+F 3 "http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4051bms-52bms-53bms.pdf" H 9800 1750 50  0001 C CNN
+	1    9800 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4051 U?
+U 1 1 61244F16
+P 5250 1750
+F 0 "U?" H 5794 1796 50  0000 L CNN
+F 1 "4051" H 5794 1705 50  0000 L CNN
+F 2 "" H 5250 1750 50  0001 C CNN
+F 3 "http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4051bms-52bms-53bms.pdf" H 5250 1750 50  0001 C CNN
+	1    5250 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4051 U?
+U 1 1 612450E6
+P 7600 1750
+F 0 "U?" H 8144 1796 50  0000 L CNN
+F 1 "4051" H 8144 1705 50  0000 L CNN
+F 2 "" H 7600 1750 50  0001 C CNN
+F 3 "http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4051bms-52bms-53bms.pdf" H 7600 1750 50  0001 C CNN
+	1    7600 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 6124537B
+P 1200 3350
+F 0 "J?" H 1232 3675 50  0000 C CNN
+F 1 "AudioJack2" H 1232 3584 50  0000 C CNN
+F 2 "" H 1200 3350 50  0001 C CNN
+F 3 "~" H 1200 3350 50  0001 C CNN
+	1    1200 3350
+	1    0    0    -1  
+$EndComp
+Text GLabel 1400 3350 2    50   Input ~ 0
+InputJack
+Text GLabel 1250 3750 0    50   Input ~ 0
+GND
+$Comp
+L power:GND #PWR?
+U 1 1 61245E87
+P 1250 3750
+F 0 "#PWR?" H 1250 3500 50  0001 C CNN
+F 1 "GND" V 1255 3622 50  0000 R CNN
+F 2 "" H 1250 3750 50  0001 C CNN
+F 3 "" H 1250 3750 50  0001 C CNN
+	1    1250 3750
+	0    -1   -1   0   
+$EndComp
+Text GLabel 1400 3250 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61246C6B
+P 1200 2800
+F 0 "J?" H 1232 3125 50  0000 C CNN
+F 1 "AudioJack2" H 1232 3034 50  0000 C CNN
+F 2 "" H 1200 2800 50  0001 C CNN
+F 3 "~" H 1200 2800 50  0001 C CNN
+	1    1200 2800
+	1    0    0    -1  
+$EndComp
+Text GLabel 1400 2800 2    50   Input ~ 0
+Return1
+Text GLabel 1400 2700 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61246D6B
+P 1200 2250
+F 0 "J?" H 1232 2575 50  0000 C CNN
+F 1 "AudioJack2" H 1232 2484 50  0000 C CNN
+F 2 "" H 1200 2250 50  0001 C CNN
+F 3 "~" H 1200 2250 50  0001 C CNN
+	1    1200 2250
+	1    0    0    -1  
+$EndComp
+Text GLabel 1400 2250 2    50   Input ~ 0
+Return2
+Text GLabel 1400 2150 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61246ED4
+P 1200 1700
+F 0 "J?" H 1232 2025 50  0000 C CNN
+F 1 "AudioJack2" H 1232 1934 50  0000 C CNN
+F 2 "" H 1200 1700 50  0001 C CNN
+F 3 "~" H 1200 1700 50  0001 C CNN
+	1    1200 1700
+	1    0    0    -1  
+$EndComp
+Text GLabel 1400 1700 2    50   Input ~ 0
+Return3
+Text GLabel 1400 1600 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61247330
+P 1200 1200
+F 0 "J?" H 1232 1525 50  0000 C CNN
+F 1 "AudioJack2" H 1232 1434 50  0000 C CNN
+F 2 "" H 1200 1200 50  0001 C CNN
+F 3 "~" H 1200 1200 50  0001 C CNN
+	1    1200 1200
+	1    0    0    -1  
+$EndComp
+Text GLabel 1400 1200 2    50   Input ~ 0
+Return4
+Text GLabel 1400 1100 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61259BC5
+P 2400 3350
+F 0 "J?" H 2432 3675 50  0000 C CNN
+F 1 "AudioJack2" H 2432 3584 50  0000 C CNN
+F 2 "" H 2400 3350 50  0001 C CNN
+F 3 "~" H 2400 3350 50  0001 C CNN
+	1    2400 3350
+	1    0    0    -1  
+$EndComp
+Text GLabel 2600 3350 2    50   Input ~ 0
+OutputJack
+Text GLabel 2600 3250 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61259BCD
+P 2400 2800
+F 0 "J?" H 2432 3125 50  0000 C CNN
+F 1 "AudioJack2" H 2432 3034 50  0000 C CNN
+F 2 "" H 2400 2800 50  0001 C CNN
+F 3 "~" H 2400 2800 50  0001 C CNN
+	1    2400 2800
+	1    0    0    -1  
+$EndComp
+Text GLabel 2600 2800 2    50   Input ~ 0
+Send1
+Text GLabel 2600 2700 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61259BD5
+P 2400 2250
+F 0 "J?" H 2432 2575 50  0000 C CNN
+F 1 "AudioJack2" H 2432 2484 50  0000 C CNN
+F 2 "" H 2400 2250 50  0001 C CNN
+F 3 "~" H 2400 2250 50  0001 C CNN
+	1    2400 2250
+	1    0    0    -1  
+$EndComp
+Text GLabel 2600 2250 2    50   Input ~ 0
+Send2
+Text GLabel 2600 2150 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61259BDD
+P 2400 1700
+F 0 "J?" H 2432 2025 50  0000 C CNN
+F 1 "AudioJack2" H 2432 1934 50  0000 C CNN
+F 2 "" H 2400 1700 50  0001 C CNN
+F 3 "~" H 2400 1700 50  0001 C CNN
+	1    2400 1700
+	1    0    0    -1  
+$EndComp
+Text GLabel 2600 1700 2    50   Input ~ 0
+Send3
+Text GLabel 2600 1600 2    50   Input ~ 0
+GND
+$Comp
+L Connector:AudioJack2 J?
+U 1 1 61259BE5
+P 2400 1200
+F 0 "J?" H 2432 1525 50  0000 C CNN
+F 1 "AudioJack2" H 2432 1434 50  0000 C CNN
+F 2 "" H 2400 1200 50  0001 C CNN
+F 3 "~" H 2400 1200 50  0001 C CNN
+	1    2400 1200
+	1    0    0    -1  
+$EndComp
+Text GLabel 2600 1200 2    50   Input ~ 0
+Send4
+Text GLabel 2600 1100 2    50   Input ~ 0
+GND
+$Comp
+L power:GND #PWR?
+U 1 1 6125BFC2
+P 5350 2650
+F 0 "#PWR?" H 5350 2400 50  0001 C CNN
+F 1 "GND" H 5355 2477 50  0000 C CNN
+F 2 "" H 5350 2650 50  0001 C CNN
+F 3 "" H 5350 2650 50  0001 C CNN
+	1    5350 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 2650 5250 2650
+Connection ~ 5350 2650
+$Comp
+L power:GND #PWR?
+U 1 1 6125DF37
+P 7700 2650
+F 0 "#PWR?" H 7700 2400 50  0001 C CNN
+F 1 "GND" H 7705 2477 50  0000 C CNN
+F 2 "" H 7700 2650 50  0001 C CNN
+F 3 "" H 7700 2650 50  0001 C CNN
+	1    7700 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6125E479
+P 9900 2650
+F 0 "#PWR?" H 9900 2400 50  0001 C CNN
+F 1 "GND" H 9905 2477 50  0000 C CNN
+F 2 "" H 9900 2650 50  0001 C CNN
+F 3 "" H 9900 2650 50  0001 C CNN
+	1    9900 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9800 2650 9900 2650
+Connection ~ 9900 2650
+Wire Wire Line
+	7600 2650 7700 2650
+Connection ~ 7700 2650
+Text GLabel 5750 1150 2    50   Input ~ 0
+InputJack
+Text GLabel 4750 1150 0    50   Input ~ 0
+OutputJack
+Text GLabel 4750 1250 0    50   Input ~ 0
+Send1
+Text GLabel 4750 1350 0    50   Input ~ 0
+Send2
+Text GLabel 4750 1450 0    50   Input ~ 0
+Send3
+Text GLabel 4750 1550 0    50   Input ~ 0
+Send4
+Text GLabel 7100 1150 0    50   Input ~ 0
+OutputJack
+Text GLabel 7100 1250 0    50   Input ~ 0
+Send1
+Text GLabel 7100 1350 0    50   Input ~ 0
+Send2
+Text GLabel 7100 1450 0    50   Input ~ 0
+Send3
+Text GLabel 7100 1550 0    50   Input ~ 0
+Send4
+Text GLabel 9300 1150 0    50   Input ~ 0
+OutputJack
+Text GLabel 9300 1250 0    50   Input ~ 0
+Send1
+Text GLabel 9300 1350 0    50   Input ~ 0
+Send2
+Text GLabel 9300 1450 0    50   Input ~ 0
+Send3
+Text GLabel 9300 1550 0    50   Input ~ 0
+Send4
+$Comp
+L power:VCC #PWR?
+U 1 1 6126A6DB
+P 5250 850
+F 0 "#PWR?" H 5250 700 50  0001 C CNN
+F 1 "VCC" H 5267 1023 50  0000 C CNN
+F 2 "" H 5250 850 50  0001 C CNN
+F 3 "" H 5250 850 50  0001 C CNN
+	1    5250 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 6126AB99
+P 7600 850
+F 0 "#PWR?" H 7600 700 50  0001 C CNN
+F 1 "VCC" H 7617 1023 50  0000 C CNN
+F 2 "" H 7600 850 50  0001 C CNN
+F 3 "" H 7600 850 50  0001 C CNN
+	1    7600 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 6126B311
+P 9800 850
+F 0 "#PWR?" H 9800 700 50  0001 C CNN
+F 1 "VCC" H 9817 1023 50  0000 C CNN
+F 2 "" H 9800 850 50  0001 C CNN
+F 3 "" H 9800 850 50  0001 C CNN
+	1    9800 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4051 U?
+U 1 1 6126DFC2
+P 8500 4300
+F 0 "U?" H 9044 4346 50  0000 L CNN
+F 1 "4051" H 9044 4255 50  0000 L CNN
+F 2 "" H 8500 4300 50  0001 C CNN
+F 3 "http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4051bms-52bms-53bms.pdf" H 8500 4300 50  0001 C CNN
+	1    8500 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4051 U?
+U 1 1 6126DFC8
+P 6300 4300
+F 0 "U?" H 6844 4346 50  0000 L CNN
+F 1 "4051" H 6844 4255 50  0000 L CNN
+F 2 "" H 6300 4300 50  0001 C CNN
+F 3 "http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4051bms-52bms-53bms.pdf" H 6300 4300 50  0001 C CNN
+	1    6300 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6126DFCE
+P 6400 5200
+F 0 "#PWR?" H 6400 4950 50  0001 C CNN
+F 1 "GND" H 6405 5027 50  0000 C CNN
+F 2 "" H 6400 5200 50  0001 C CNN
+F 3 "" H 6400 5200 50  0001 C CNN
+	1    6400 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6126DFD4
+P 8600 5200
+F 0 "#PWR?" H 8600 4950 50  0001 C CNN
+F 1 "GND" H 8605 5027 50  0000 C CNN
+F 2 "" H 8600 5200 50  0001 C CNN
+F 3 "" H 8600 5200 50  0001 C CNN
+	1    8600 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8500 5200 8600 5200
+Connection ~ 8600 5200
+Wire Wire Line
+	6300 5200 6400 5200
+Connection ~ 6400 5200
+Text GLabel 5800 3700 0    50   Input ~ 0
+OutputJack
+Text GLabel 5800 3800 0    50   Input ~ 0
+Send1
+Text GLabel 5800 3900 0    50   Input ~ 0
+Send2
+Text GLabel 5800 4000 0    50   Input ~ 0
+Send3
+Text GLabel 5800 4100 0    50   Input ~ 0
+Send4
+Text GLabel 8000 3700 0    50   Input ~ 0
+OutputJack
+Text GLabel 8000 3800 0    50   Input ~ 0
+Send1
+Text GLabel 8000 3900 0    50   Input ~ 0
+Send2
+Text GLabel 8000 4000 0    50   Input ~ 0
+Send3
+Text GLabel 8000 4100 0    50   Input ~ 0
+Send4
+$Comp
+L power:VCC #PWR?
+U 1 1 6126DFE8
+P 6300 3400
+F 0 "#PWR?" H 6300 3250 50  0001 C CNN
+F 1 "VCC" H 6317 3573 50  0000 C CNN
+F 2 "" H 6300 3400 50  0001 C CNN
+F 3 "" H 6300 3400 50  0001 C CNN
+	1    6300 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 6126DFEE
+P 8500 3400
+F 0 "#PWR?" H 8500 3250 50  0001 C CNN
+F 1 "VCC" H 8517 3573 50  0000 C CNN
+F 2 "" H 8500 3400 50  0001 C CNN
+F 3 "" H 8500 3400 50  0001 C CNN
+	1    8500 3400
+	1    0    0    -1  
+$EndComp
+Text GLabel 8100 1150 2    50   Input ~ 0
+Return1
+Text GLabel 10300 1150 2    50   Input ~ 0
+Return2
+Text GLabel 6800 3700 2    50   Input ~ 0
+Return3
+Text GLabel 9000 3700 2    50   Input ~ 0
+Return4
+$Comp
+L MCU_Microchip_ATmega:ATmega328-PU U?
+U 1 1 612703D4
+P 2400 5900
+F 0 "U?" H 1756 5946 50  0000 R CNN
+F 1 "ATmega328-PU" H 1756 5855 50  0000 R CNN
+F 2 "Package_DIP:DIP-28_W7.62mm" H 2400 5900 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 2400 5900 50  0001 C CNN
+	1    2400 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74HC595 U?
+U 1 1 612733FC
+P 4700 6450
+F 0 "U?" H 4700 7231 50  0000 C CNN
+F 1 "74HC595" H 4700 7140 50  0000 C CNN
+F 2 "" H 4700 6450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 4700 6450 50  0001 C CNN
+	1    4700 6450
+	1    0    0    -1  
+$EndComp
+Text GLabel 4750 2150 0    50   Input ~ 0
+Mux1_A
+Text GLabel 4750 2250 0    50   Input ~ 0
+Mux1_B
+Text GLabel 4750 2350 0    50   Input ~ 0
+Mux1_C
+Text GLabel 7100 2150 0    50   Input ~ 0
+Mux2_A
+Text GLabel 7100 2250 0    50   Input ~ 0
+Mux2_B
+Text GLabel 7100 2350 0    50   Input ~ 0
+Mux2_C
+Text GLabel 9300 2150 0    50   Input ~ 0
+Mux3_A
+Text GLabel 9300 2250 0    50   Input ~ 0
+Mux3_B
+Text GLabel 9300 2350 0    50   Input ~ 0
+Mux3_C
+Text GLabel 5800 4700 0    50   Input ~ 0
+Mux4_A
+Text GLabel 5800 4800 0    50   Input ~ 0
+Mux4_B
+Text GLabel 5800 4900 0    50   Input ~ 0
+Mux4_C
+Text GLabel 8000 4700 0    50   Input ~ 0
+Mux5_A
+Text GLabel 8000 4800 0    50   Input ~ 0
+Mux5_B
+Text GLabel 8000 4900 0    50   Input ~ 0
+Mux5_C
+Text GLabel 4750 2050 0    50   Input ~ 0
+Mux1_Inh
+Text GLabel 7100 2050 0    50   Input ~ 0
+Mux2_Inh
+Text GLabel 9300 2050 0    50   Input ~ 0
+Mux3_Inh
+Text GLabel 8000 4600 0    50   Input ~ 0
+Mux5_Inh
+Text GLabel 5800 4600 0    50   Input ~ 0
+Mux4_Inh
+Text GLabel 5100 6150 2    50   Input ~ 0
+Mux1_A
+Text GLabel 5100 6250 2    50   Input ~ 0
+Mux1_B
+Text GLabel 5100 6350 2    50   Input ~ 0
+Mux1_C
+Text GLabel 5100 6050 2    50   Input ~ 0
+Mux1_Inh
+Text GLabel 5100 6550 2    50   Input ~ 0
+Mux2_A
+Text GLabel 5100 6650 2    50   Input ~ 0
+Mux2_B
+Text GLabel 5100 6750 2    50   Input ~ 0
+Mux2_C
+Text GLabel 5100 6450 2    50   Input ~ 0
+Mux2_Inh
+Text GLabel 4750 1650 0    50   Input ~ 0
+GND
+Wire Wire Line
+	4750 1650 4750 1750
+Connection ~ 4750 1750
+Wire Wire Line
+	4750 1750 4750 1850
+Text GLabel 7100 1650 0    50   Input ~ 0
+GND
+Wire Wire Line
+	7100 1650 7100 1750
+Connection ~ 7100 1750
+Wire Wire Line
+	7100 1750 7100 1850
+Text GLabel 9300 1650 0    50   Input ~ 0
+GND
+Wire Wire Line
+	9300 1650 9300 1750
+Connection ~ 9300 1750
+Wire Wire Line
+	9300 1750 9300 1850
+Text GLabel 5800 4200 0    50   Input ~ 0
+GND
+Wire Wire Line
+	5800 4200 5800 4300
+Connection ~ 5800 4300
+Wire Wire Line
+	5800 4300 5800 4400
+Text GLabel 8000 4200 0    50   Input ~ 0
+GND
+Wire Wire Line
+	8000 4200 8000 4300
+Connection ~ 8000 4300
+Wire Wire Line
+	8000 4300 8000 4400
+$EndSCHEMATC
