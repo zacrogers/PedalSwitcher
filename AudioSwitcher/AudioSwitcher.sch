@@ -578,11 +578,11 @@ F 3 "" H 13550 4200 50  0001 C CNN
 	1    13550 4200
 	1    0    0    -1  
 $EndComp
-Text GLabel 14300 1500 2    50   Input ~ 0
+Text GLabel 14450 1550 2    50   Input ~ 0
 ShiftRegData
-Text GLabel 14300 1600 2    50   Input ~ 0
+Text GLabel 14450 1650 2    50   Input ~ 0
 ShiftRegClock
-Text GLabel 14300 1700 2    50   Input ~ 0
+Text GLabel 14450 1750 2    50   Input ~ 0
 ShiftRegLatch
 Text GLabel 1800 6750 0    50   Input ~ 0
 ShiftRegData
@@ -701,11 +701,11 @@ Text GLabel 1750 9450 0    50   Input ~ 0
 LEDShiftRegClock
 Text GLabel 1750 9750 0    50   Input ~ 0
 LEDShiftRegLatch
-Text GLabel 14450 2100 2    50   Input ~ 0
+Text GLabel 14450 3500 2    50   Input ~ 0
 LEDShiftRegClock
-Text GLabel 14450 2200 2    50   Input ~ 0
+Text GLabel 14450 3600 2    50   Input ~ 0
 LEDShiftRegData
-Text GLabel 14450 2000 2    50   Input ~ 0
+Text GLabel 14450 3400 2    50   Input ~ 0
 LEDShiftRegLatch
 Text GLabel 1750 9550 0    50   Input ~ 0
 GND
@@ -720,15 +720,15 @@ F 3 "" H 2150 10350 50  0001 C CNN
 	1    2150 10350
 	1    0    0    -1  
 $EndComp
-Text GLabel 14450 2650 2    50   Input ~ 0
+Text GLabel 14450 2600 2    50   Input ~ 0
 BtnMuxA
-Text GLabel 14450 2550 2    50   Input ~ 0
+Text GLabel 14450 2500 2    50   Input ~ 0
 BtnMuxB
-Text GLabel 14450 2450 2    50   Input ~ 0
+Text GLabel 14450 2400 2    50   Input ~ 0
 BtnMuxC
 Text GLabel 10550 9000 2    50   Input ~ 0
 BtnMuxOut
-Text GLabel 14450 2750 2    50   Input ~ 0
+Text GLabel 14450 2700 2    50   Input ~ 0
 BtnMuxOut
 $Comp
 L power:GND #PWR?
@@ -1411,4 +1411,24 @@ Wire Notes Line
 	8850 8600 11200 8600
 Wire Notes Line
 	8600 6300 15200 6300
+Text GLabel 14150 3300 2    50   Input ~ 0
+TX
+Text GLabel 14150 3200 2    50   Input ~ 0
+RX
+Text GLabel 14150 2200 2    50   Input ~ 0
+XtalB
+Text GLabel 14150 2100 2    50   Input ~ 0
+XtalA
+Text GLabel 14150 2800 2    50   Input ~ 0
+I2C_SCL
+Text GLabel 14150 2900 2    50   Input ~ 0
+I2C_SDA
+Text GLabel 14150 2000 2    50   Input ~ 0
+SCK
+Text GLabel 14150 1800 2    50   Input ~ 0
+MOSI
+Text GLabel 14150 1900 2    50   Input ~ 0
+MISO
+Text GLabel 14150 3000 2    50   Input ~ 0
+RESET
 $EndSCHEMATC
