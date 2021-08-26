@@ -1,20 +1,21 @@
 #pragma once
 
 #include <Arduino.h>
-#include <EEPROM.h>
 #include <stdint.h>
 #include <stdlib.h>
-// #include <string.h>
-// #include <vector.h>
-// #include "mux.hh"
+#include <avr/eeprom.h>
 #include "shift_register.hh"
 #include "gpio.hh"
 
 using z_lib::Gpio;
 
+// Total number of patches that can be saved
 constexpr uint8_t MAX_PATCHES = 10;
+
+// Total number of pedal loops per board
 constexpr uint8_t NUM_CHANNELS = 4;
-// 4 control pins per mux. 
+
+// 3 channel select pins + enable pin per MUX
 constexpr int MUX_OFFSET = 4;
 
 enum class Output
@@ -37,36 +38,36 @@ enum class Input
     N_INPUTS
 };
 
+/* 
+    For tracking patch states. 
+    Could just be saved as an array or byte but this is slightly clearer.
+*/
 typedef struct 
 {
-    bool enable;
-    Output output;
-}Mux;
-
-
-typedef struct 
-{
-    // std::string name;
-    bool enabled[5];
-    Output output[5];
+    bool enabled[NUM_CHANNELS];
 }Patch;
 
-Patch init_patch(
-    bool en1, 
-    bool en2, 
-    bool en3, 
-    bool en4, 
-    Output op1, 
-    Output op2, 
-    Output op3, 
-    Output op4);
 
+/* Constructor for patch struct */
+Patch init_patch(bool en1, bool en2, bool en3, bool en4);
+
+/* Init all patches as bypass. Mainly for testing */
 void init_patches(void);
-void add_patch(uint8_t index);
-void save_patch(uint8_t index);
+
+/* Save patch struct at index as byte to eeprom */
+void save_patch_to_eeprom(uint8_t index);
+
+/* Load all patches from eeprom to array of patch structs */
+void load_patches_from_eeprom(void);
+
+/* Set current patch */
 void set_patch(Patch *patch);
-void bypass(void);
 
-uint8_t set_mux_channel(bool enable, Output output); /* returns bitmap to set shift register */
+/* Find the next enabled channel to set mux output routing */
+Output find_next_enabled(bool *enabled, uint8_t index); 
 
+/* Returns bitmap to set shift register */
+uint8_t set_mux_channel(bool enable, Output output); 
+
+/* Polls the buttons. Funny that. */
 void poll_buttons(void);

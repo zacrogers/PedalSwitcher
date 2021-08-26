@@ -38,11 +38,11 @@ void ShiftRegister::set(uint16_t val)
     /* Set register output*/
     _latch->clear();
 
-    for(int led = 0; led < _n_bits; led++)
+    for(int bit = 0; bit < _n_bits; ++bit)
     {
         _clock->clear();
         
-        if((0x01 << val) & (0x01 << led))
+        if((0x01 << val) & (0x01 << bit))
         {
             _data->set();
         }                                          
