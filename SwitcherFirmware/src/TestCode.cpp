@@ -1,3 +1,6 @@
+/* 
+    Guitar pedal loop switcher
+*/
 #include "main.h"
 
 
