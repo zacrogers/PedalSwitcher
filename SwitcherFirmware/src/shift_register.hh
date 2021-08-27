@@ -1,44 +1,40 @@
 #pragma once
 
 #include <stdint.h>
-
 #include "gpio.hh"
 // using std::uint8_t;
 using z_lib::Gpio;
 
+template<int N_BITS>
 class ShiftRegister
 {
-private:
-    Gpio *_data; 
-    Gpio *_clock; 
-    Gpio *_latch;
-    uint8_t _n_bits;
-    uint16_t _prev_state = 0x00;
-public:
-    ShiftRegister(Gpio *data, Gpio *clock, Gpio *latch, uint8_t n_bits);
-    ~ShiftRegister();
-    uint8_t num_bits(){return _n_bits;}
-    void set(uint16_t val);
+    private:
+        Gpio *_data; 
+        Gpio *_clock; 
+        Gpio *_latch;
+        uint16_t _prev_state = 0x00;
+    public:
+        ShiftRegister(Gpio *data, Gpio *clock, Gpio *latchs);
+        int num_bits(){return N_BITS;}
+        void set(uint16_t val);
 };
 
-ShiftRegister::ShiftRegister(Gpio *data, Gpio *clock, Gpio *latch, uint8_t n_bits) 
-                                : _data{data}, _clock{clock}, _latch{latch}, _n_bits{n_bits}
+template<int N_BITS>
+ShiftRegister<N_BITS>::ShiftRegister(Gpio *data, Gpio *clock, Gpio *latch) 
+                                : _data{data}, _clock{clock}, _latch{latch}
 {
 }
 
-ShiftRegister::~ShiftRegister()
+template<int N_BITS>
+void ShiftRegister<N_BITS>::set(uint16_t val)
 {
-}
-
-
-void ShiftRegister::set(uint16_t val)
-{
+    /* If state doesn't change don't bother setting */
     if(_prev_state == val) return;
 
     /* Set register output*/
     _latch->clear();
 
-    for(int bit = 0; bit < _n_bits; ++bit)
+    for(int bit = 0; bit < N_BITS; ++bit)
     {
         _clock->clear();
         

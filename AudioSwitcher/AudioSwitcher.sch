@@ -1442,4 +1442,6 @@ Wire Notes Line
 	900  4500 4100 4500
 Wire Notes Line
 	4100 5950 900  5950
+Wire Wire Line
+	2800 5150 2800 5350
 $EndSCHEMATC

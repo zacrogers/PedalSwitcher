@@ -12,6 +12,7 @@ namespace z_lib
 	{
 		this->port = port;
 		this->pin  = pin;
+		this->mode = mode;
 		
 		switch(mode)
 		{
@@ -48,5 +49,13 @@ namespace z_lib
 	uint8_t Gpio::read(void)
 	{
 		return (PIN(*this->port) & (1U << this->pin));
+	}
+
+	void Gpio::set_pullup(void)
+	{
+		if(Mode::IN == this->mode)
+		{
+			this->set();
+		}
 	}
 }

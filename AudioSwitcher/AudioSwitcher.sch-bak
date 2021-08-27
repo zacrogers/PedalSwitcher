@@ -1289,7 +1289,7 @@ F 3 "" H 3700 4850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 3700 4850
-Text Notes 2050 5800 0    118  ~ 0
+Text Notes 1950 5800 0    118  ~ 0
 Power Supply
 Wire Notes Line
 	8100 8700 900  8700
@@ -1318,32 +1318,23 @@ Wire Notes Line
 $Comp
 L Connector:Conn_01x02_Male J?
 U 1 1 6157BF67
-P 1350 4850
-F 0 "J?" H 1458 5031 50  0000 C CNN
-F 1 "Conn_01x02_Male" H 1458 4940 50  0000 C CNN
-F 2 "" H 1350 4850 50  0001 C CNN
-F 3 "~" H 1350 4850 50  0001 C CNN
-	1    1350 4850
+P 1150 4850
+F 0 "J?" H 1258 5031 50  0000 C CNN
+F 1 "PowerConn" H 1258 4940 50  0000 C CNN
+F 2 "" H 1150 4850 50  0001 C CNN
+F 3 "~" H 1150 4850 50  0001 C CNN
+	1    1150 4850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1550 4850 1900 4850
-Connection ~ 1900 4850
 Wire Wire Line
 	1900 5350 1700 5350
 Wire Wire Line
 	1700 5350 1700 4950
-Wire Wire Line
-	1700 4950 1550 4950
 Connection ~ 1900 5350
-Wire Notes Line
-	1050 4500 4100 4500
 Wire Notes Line
 	4100 4500 4100 5950
 Wire Notes Line
-	4100 5950 1050 5950
-Wire Notes Line
-	1050 5950 1050 4500
+	900  5950 900  4500
 Wire Notes Line
 	4450 850  4450 6050
 Wire Notes Line
@@ -1431,4 +1422,24 @@ Text GLabel 14150 1900 2    50   Input ~ 0
 MISO
 Text GLabel 14150 3000 2    50   Input ~ 0
 RESET
+$Comp
+L Diode:1N4001 D?
+U 1 1 6171DF28
+P 1750 4850
+F 0 "D?" H 1750 4634 50  0000 C CNN
+F 1 "1N4001" H 1750 4725 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 1750 4675 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 1750 4850 50  0001 C CNN
+	1    1750 4850
+	-1   0    0    1   
+$EndComp
+Connection ~ 1900 4850
+Wire Wire Line
+	1600 4850 1350 4850
+Wire Wire Line
+	1350 4950 1700 4950
+Wire Notes Line
+	900  4500 4100 4500
+Wire Notes Line
+	4100 5950 900  5950
 $EndSCHEMATC

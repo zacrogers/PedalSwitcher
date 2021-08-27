@@ -3,7 +3,7 @@
 */
 #include "main.h"
 
-
+// Pin definitions for channel switching buttons
 Gpio channel_btns[NUM_CHANNELS] = {
     Gpio(PORTB, PIN3, Gpio::Mode::IN),
     Gpio(PORTB, PIN4, Gpio::Mode::IN),
@@ -11,26 +11,49 @@ Gpio channel_btns[NUM_CHANNELS] = {
     Gpio(PORTB, PIN6, Gpio::Mode::IN)
 };
 
+// Patch control button pins
 Gpio patch_mode_btn = Gpio(PORTB, PIN7, Gpio::Mode::IN);
 Gpio patch_up_btn   = Gpio(PORTB, PIN7, Gpio::Mode::IN);
 Gpio patch_down_btn = Gpio(PORTB, PIN7, Gpio::Mode::IN);
+Gpio patch_save_btn = Gpio(PORTB, PIN7, Gpio::Mode::IN);
 
-Gpio sr_data        = Gpio(PORTB, PIN0, Gpio::Mode::OUT);
-Gpio sr_clock       = Gpio(PORTB, PIN1, Gpio::Mode::OUT);
-Gpio sr_latch       = Gpio(PORTB, PIN2, Gpio::Mode::OUT);
+// Audio IO shift register pins
+Gpio io_sr_data     = Gpio(PORTB, PIN0, Gpio::Mode::OUT);
+Gpio io_sr_clock    = Gpio(PORTB, PIN1, Gpio::Mode::OUT);
+Gpio io_sr_latch    = Gpio(PORTB, PIN2, Gpio::Mode::OUT);
 
-ShiftRegister shift_reg(&sr_data, &sr_clock, &sr_latch, 16);
+// LED & seven segment shift register pins
+Gpio led_sr_data    = Gpio(PORTB, PIN0, Gpio::Mode::OUT);
+Gpio led_sr_clock   = Gpio(PORTB, PIN1, Gpio::Mode::OUT);
+Gpio led_sr_latch   = Gpio(PORTB, PIN2, Gpio::Mode::OUT);
 
+// Shift register for audio IO routing
+ShiftRegister<16> io_shift_reg(&io_sr_data, &io_sr_clock, &io_sr_latch);
+
+// Shift register for led & seven segment diplays
+ShiftRegister<16> led_shift_reg(&led_sr_data, &led_sr_clock, &led_sr_latch);
+
+// These are the same other than data types and being stored in RAM vs EEPROM
 Patch patches[MAX_PATCHES];
-
 uint8_t EEMEM eeprom_patches[MAX_PATCHES];
 
+// Tracks current and previous patch on pedalboard
 uint8_t current_patch = 0;
 uint8_t prev_patch = 0;
 
 void setup(void)
 {
-    // load saved patches
+    /* Set pullups for buttons */
+    for(uint8_t pin = 0; pin < NUM_CHANNELS; ++pin)
+    {
+        channel_btns[pin].set_pullup();
+    }
+    
+    patch_mode_btn.set_pullup();
+    patch_up_btn.set_pullup();
+    patch_down_btn.set_pullup();
+
+    /* Load saved patches */
     // load_patches_from_eeprom();
     init_patches();
 
@@ -64,10 +87,6 @@ Patch init_patch(bool en1, bool en2, bool en3, bool en4)
     patch.enabled[1] = en2;
     patch.enabled[2] = en3;
     patch.enabled[3] = en4;
-    // patch.output[0] = op1;
-    // patch.output[1] = op2;
-    // patch.output[2] = op3;
-    // patch.output[3] = op4;
 
     return patch;
 }
@@ -122,7 +141,7 @@ void set_patch(Patch *patch)
         sr_output |= (bitmap << offset);
     }
 
-    shift_reg.set(sr_output);
+    io_shift_reg.set(sr_output);
 }
 
 

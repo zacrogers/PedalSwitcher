@@ -63,7 +63,7 @@ void load_patches_from_eeprom(void);
 /* Set current patch */
 void set_patch(Patch *patch);
 
-/* Find the next enabled channel to set mux output routing */
+/* Find the next channel enabled to set mux output routing */
 Output find_next_enabled(bool *enabled, uint8_t index); 
 
 /* Returns bitmap to set shift register */

@@ -39,6 +39,7 @@ namespace z_lib
 		private:
 			volatile uint8_t *port;
 			uint8_t pin;
+			Mode mode;
 	};
 }
 
