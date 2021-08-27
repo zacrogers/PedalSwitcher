@@ -41,6 +41,11 @@ uint8_t EEMEM eeprom_patches[MAX_PATCHES];
 uint8_t current_patch = 0;
 uint8_t prev_patch = 0;
 
+bool save_patch = false;
+
+PedalBoard::Mode mode = PedalBoard::Mode::PEDAL;
+
+
 void setup(void)
 {
     /* Set pullups for buttons */
@@ -66,12 +71,19 @@ void setup(void)
 
 void loop(void)
 {
-    // poll_buttons();
+    poll_buttons();
 
     // if(prev_patch != current_patch)
     // {
     //     set_patch(&patches[current_patch]);
+    //     prev_patch = current_patch;
     // } 
+
+    // if(save_patch)
+    // {
+    //     save_patch_to_eeprom(current_patch);
+    //     save_patch = false;
+    // }
 
     for(int i = 0; i < 5; ++i)
     {
@@ -79,6 +91,7 @@ void loop(void)
         delay(2000);
     }
 }
+
 
 Patch init_patch(bool en1, bool en2, bool en3, bool en4)
 {
@@ -173,14 +186,31 @@ void poll_buttons(void)
 
     if(patch_down_btn.read() && (current_patch != 0))
     {   
-        prev_patch = current_patch;
         current_patch--;
     }
 
     if(patch_up_btn.read() && (current_patch != MAX_PATCHES))
     {
-        prev_patch = current_patch;
         current_patch++;
+    }
+
+    if(patch_mode_btn.read())
+    {
+        switch (mode)
+        {
+            case PedalBoard::Mode::PEDAL:
+                mode = PedalBoard::Mode::PATCH;
+                break;
+            
+            case PedalBoard::Mode::PATCH:
+                mode = PedalBoard::Mode::PEDAL;
+                break;
+        }
+    }
+
+    if(patch_save_btn.read())
+    {
+        save_patch = true;
     }
 }
 

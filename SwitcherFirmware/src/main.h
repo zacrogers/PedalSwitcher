@@ -12,7 +12,7 @@ using z_lib::Gpio;
 // Total number of patches that can be saved
 constexpr uint8_t MAX_PATCHES = 10;
 
-// Total number of pedal loops per board
+// Total number of pedal loop channels per board
 constexpr uint8_t NUM_CHANNELS = 4;
 
 // 3 channel select pins + enable pin per MUX
@@ -38,6 +38,16 @@ enum class Input
     N_INPUTS
 };
 
+namespace PedalBoard
+{
+// Mode for switching pedals individually or switching patches
+enum class Mode
+{
+    PATCH = 0,
+    PEDAL
+};
+};
+
 /* 
     For tracking patch states. 
     Could just be saved as an array or byte but this is slightly clearer.
@@ -57,7 +67,7 @@ void init_patches(void);
 /* Save patch struct at index as byte to eeprom */
 void save_patch_to_eeprom(uint8_t index);
 
-/* Load all patches from eeprom to array of patch structs */
+/* Load all patches from eeprom to array of patch structs. Only called on startup. */
 void load_patches_from_eeprom(void);
 
 /* Set current patch */
