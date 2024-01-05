@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2020, Kim Bøndergaard, <kim@fam-boendergaard.dk>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+ / {
+	shift_register {
+		compatible = "gpio-keys";
+		sr_data: sr_data {
+			gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+			label = "SR Data";
+		};
+		sr_latch: sr_latch {
+			gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+			label = "SR Latch";
+		};
+		sr_clock: sr_clock {
+			gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+			label = "SR clock";
+		};
+		sr_out_enable: sr_out_enable {
+			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
+			label = "SR Out Enable";
+		};
+		sr_clear: sr_clear {
+			gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
+			label = "SR Clear";
+		};
+	};
+	// chosen {
+	// 	zephyr,display = &st7735r_st7735r_ada_160x128;
+	// };
+	// buttons {
+	// 	compatible = "gpio-keys";
+	// 	a_button: a_button {
+	// 		gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
+	// 		label = "A Button";
+	// 	};
+	// 	b_button: b_button {
+	// 		gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
+	// 		label = "B Button";
+	// 	};
+	// 	up_button: up_button {
+	// 		gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
+	// 		label = "Up Button";
+	// 	};
+	// 	down_button: down_button {
+	// 		gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
+	// 		label = "Down Button";
+	// 	};
+	// 	// left_button: left_button {
+	// 	// 	gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
+	// 	// 	label = "Left Button";
+	// 	// };
+	// 	// right_button: right_button {
+	// 	// 	gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
+	// 	// 	label = "Right Button";
+	// 	// };
+	// 	// start_button: start_button {
+	// 	// 	gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
+	// 	// 	label = "Start Button";
+	// 	// };
+	// 	// select_button: select_button {
+	// 	// 	gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
+	// 	// 	label = "Select Button";
+	// 	// };
+	// };
+};
+
+// &spi2 {
+// 	st7735r_st7735r_ada_160x128: st7735r@0 {
+// 		compatible = "sitronix,st7735r";
+// 		spi-max-frequency = <20000000>;
+// 		reg = <0>;
+// 		cmd-data-gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;	/* D9 */
+// 		reset-gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;	/* D8 */
+// 		width = <160>;
+// 		height = <128>;
+// 		x-offset = <0>;
+// 		y-offset = <0>;
+// 		madctl = <0x60>;
+// 		colmod = <0x55>;
+// 		vmctr1 = <0x0e>;
+// 		pwctr1 = [a2 02 84];
+// 		pwctr2 = [c5];
+// 		pwctr3 = [0a 00];
+// 		pwctr4 = [8a 2a];
+// 		pwctr5 = [8a ee];
+// 		frmctr1 = [01 2c 2d];
+// 		frmctr2 = [01 2c 2d];
+// 		frmctr3 = [01 2c 2d 01 2c 2d];
+// 		gamctrp1 = [02 1c 07 12 37 32 29 2d 29 25 2b 39 00 01 03 10];
+// 		gamctrn1 = [03 1d 07 06 2e 2c 29 2d 2e 2e 37 3f 00 00 02 10];
+// 	};
+// };
+
+// &spi1 {
+// 	status = "okay";
+// 	cs-gpios = <&porta 27 GPIO_ACTIVE_LOW>;
+
+// 	sdhc0: sdhc@0 {
+// 			compatible = "zephyr,sdhc-spi-slot";
+// 			reg = <0>;
+// 			status = "okay";
+// 			mmc {
+// 				compatible = "zephyr,sdmmc-disk";
+// 				status = "okay";
+// 			};
+// 			spi-max-frequency = <24000000>;
+// 	};
+// };
+
+
+&wifi {
+	status = "okay";
+};
+
+&uart1 {
+	status="disabled";
+};
+
+&uart2 {
+	status="disabled";
+};
+
+// &pinctrl {
+// 	spim2_default: spim2_default {
+// 		group1 {
+// 			pinmux = <SPIM2_MISO_GPIO12>,
+// 					<SPIM2_SCLK_GPIO14>,
+// 					<SPIM2_CSEL_GPIO15>;
+// 		};
+// 		group2 {
+// 			pinmux = <SPIM2_MOSI_GPIO13>;
+// 			output-low;
+// 		};
+// 	};
+// };
